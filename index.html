@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <meta name="description" content="iGC - intelligence in General Consulting : expertise en ingénierie hydraulique, environnementale et infrastructures. Bureau d'études international.">
+    <meta name="keywords" content="ingénierie hydraulique, études environnementales, modélisation, barrages, AEP, Tunisie, international">
+    <meta name="author" content="iGC Consulting">
+    <meta property="og:title" content="iGC - intelligence in General Consulting">
+    <meta property="og:description" content="Expertise en ingénierie hydraulique et environnementale">
+    <meta property="og:type" content="website">
+    <title>iGC - intelligence in General Consulting</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ========== STYLES (identiques) ========== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
+            color: #0f172a;
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+        :root {
+            --primary: #1e40af;
+            --primary-dark: #0f2b6d;
+            --primary-light: #3b82f6;
+            --secondary: #f0f9ff;
+            --accent: #06b6d4;
+            --gray-50: #f8fafc;
+            --gray-100: #f1f5f9;
+            --gray-200: #e2e8f0;
+            --gray-600: #475569;
+            --gray-800: #1e293b;
+            --shadow-sm: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.02);
+            --shadow-md: 0 10px 15px -3px rgba(0,0,0,0.05), 0 4px 6px -2px rgba(0,0,0,0.02);
+            --shadow-lg: 0 20px 25px -5px rgba(0,0,0,0.05), 0 10px 10px -5px rgba(0,0,0,0.01);
+            --shadow-xl: 0 25px 50px -12px rgba(0,0,0,0.15);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --border-radius: 1.5rem;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        ::selection {
+            background: var(--primary-light);
+            color: white;
+        }
+        h1, h2, h3, h4, .logo-text {
+            font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+        h1 {
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            line-height: 1.2;
+        }
+        h2 {
+            font-size: clamp(2rem, 5vw, 2.8rem);
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 70px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-light), var(--accent));
+            border-radius: 4px;
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .section-header h2:after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .section-header p {
+            max-width: 700px;
+            margin: 1rem auto 0;
+            color: var(--gray-600);
+            font-size: 1.1rem;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 28px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            cursor: pointer;
+            box-shadow: var(--shadow-sm);
+            font-size: 0.95rem;
+        }
+        .btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+        .btn-outline {
+            background: transparent;
+            border: 2px solid rgba(255,255,255,0.7);
+            color: white;
+            box-shadow: none;
+        }
+        .btn-outline:hover {
+            background: white;
+            color: var(--primary-dark);
+            border-color: white;
+        }
+        header {
+            background: rgba(255,255,255,0.8);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            transition: all 0.3s;
+        }
+        header.scrolled {
+            background: rgba(255,255,255,0.95);
+            box-shadow: var(--shadow-sm);
+        }
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            max-width: 1280px;
+            margin: 0 auto;
+            width: 90%;
+        }
+        .logo-text {
+            font-size: 1.4rem;
+            font-weight: 800;
+            font-style: italic;
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary-light));
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            letter-spacing: -0.01em;
+        }
+        nav ul {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: var(--gray-800);
+            font-weight: 600;
+            transition: var(--transition);
+            font-size: 0.95rem;
+        }
+        nav ul li a:hover, nav ul li a.active {
+            color: var(--primary);
+        }
+        .lang-switch {
+            display: flex;
+            gap: 8px;
+            margin-left: 20px;
+        }
+        .lang-btn {
+            background: transparent;
+            border: 1px solid var(--gray-200);
+            padding: 6px 12px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: 0.2s;
+            color: var(--gray-800);
+        }
+        .lang-btn.active {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: white;
+        }
+        .mobile-menu {
+            display: none;
+            font-size: 1.6rem;
+            cursor: pointer;
+            color: var(--primary-dark);
+        }
+        .hero {
+            position: relative;
+            padding: 180px 0 120px;
+            overflow: hidden;
+            background: linear-gradient(rgba(7, 27, 68, 0.75), rgba(7, 27, 68, 0.85)), url('Photos/Photo%20Introduction.png');
+            background-size: cover;
+            background-position: center 30%;
+            background-repeat: no-repeat;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 30% 40%, rgba(12,46,110,0.4), rgba(7,27,68,0.6));
+            pointer-events: none;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 720px;
+            animation: fadeUp 0.8s ease-out;
+        }
+        .hero h1 {
+            background: linear-gradient(135deg, #fff, #c7e9ff);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 1.5rem;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            color: #e2edff;
+            margin-bottom: 2rem;
+        }
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .services-grid, .projects-grid, .refs-grid {
+            display: grid;
+            gap: 2rem;
+        }
+        .services-grid {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+        .service-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            text-align: center;
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+            border-color: transparent;
+        }
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(145deg, var(--primary-light), var(--accent));
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: white;
+            font-size: 2rem;
+            box-shadow: 0 12px 20px -8px rgba(59,130,246,0.3);
+        }
+        .project-filters {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+        .filter-btn {
+            background: transparent;
+            border: 1px solid var(--gray-200);
+            padding: 0.5rem 1.2rem;
+            border-radius: 40px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+            color: var(--gray-600);
+        }
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: white;
+        }
+        .projects-grid {
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        }
+        .project-card {
+            background: white;
+            border-radius: 1.2rem;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        .project-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.4s;
+        }
+        .project-card:hover .project-image {
+            transform: scale(1.02);
+        }
+        .project-content {
+            padding: 1.5rem;
+        }
+        .project-category {
+            display: inline-block;
+            background: var(--gray-100);
+            color: var(--primary);
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+            margin-bottom: 0.8rem;
+        }
+        .project-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        .project-client {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.8);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            backdrop-filter: blur(4px);
+        }
+        .modal.active {
+            display: flex;
+        }
+        .modal-content {
+            background: white;
+            max-width: 800px;
+            width: 90%;
+            border-radius: 1.5rem;
+            overflow: hidden;
+            max-height: 90vh;
+            overflow-y: auto;
+            animation: fadeUp 0.3s;
+        }
+        .modal-image {
+            height: 300px;
+            background-size: cover;
+            background-position: center;
+        }
+        .modal-body {
+            padding: 2rem;
+        }
+        .modal-close {
+            float: right;
+            font-size: 1.5rem;
+            cursor: pointer;
+            background: var(--gray-100);
+            width: 40px;
+            height: 40px;
+            border-radius: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 1rem;
+        }
+        .modal-close:hover {
+            background: var(--gray-200);
+        }
+        .partner-ribbon {
+            width: 100%;
+            overflow: hidden;
+            background: white;
+            padding: 20px 0;
+            position: relative;
+            box-shadow: var(--shadow-sm);
+        }
+        .partner-track {
+            display: flex;
+            width: fit-content;
+            animation: scrollRibbon 30s linear infinite;
+        }
+        .partner-track:hover {
+            animation-play-state: paused;
+        }
+        .partner-logo {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-width: 150px;
+            margin: 0 20px;
+            background: transparent;
+            transition: transform 0.2s;
+        }
+        .partner-logo img {
+            max-width: 100px;
+            max-height: 70px;
+            object-fit: contain;
+            filter: grayscale(0%);
+        }
+        @keyframes scrollRibbon {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        @media (max-width: 768px) {
+            .partner-logo { min-width: 120px; margin: 0 12px; }
+            .partner-logo img { max-width: 70px; max-height: 50px; }
+            .partner-track { animation-duration: 20s; }
+        }
+        .contact-content {
+            display: flex;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+        .contact-info, .contact-form {
+            flex: 1;
+            min-width: 280px;
+        }
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.8rem;
+        }
+        .contact-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--gray-100);
+            border-radius: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+        .form-control {
+            width: 100%;
+            padding: 14px 18px;
+            border: 1.5px solid var(--gray-200);
+            border-radius: 60px;
+            transition: 0.2s;
+            font-size: 0.95rem;
+        }
+        textarea.form-control {
+            border-radius: 24px;
+            resize: vertical;
+        }
+        .form-control:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(59,130,246,0.2);
+        }
+        .gdpr-check {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--primary);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 99;
+            box-shadow: var(--shadow-md);
+        }
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        .back-to-top:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+        }
+        footer {
+            background: #0a2540;
+            color: white;
+            padding: 60px 0 20px;
+        }
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        .footer-logo h2 {
+            color: white;
+            font-size: 1.6rem;
+            font-style: italic;
+            font-weight: 800;
+        }
+        .footer-logo h2:after { display: none; }
+        .footer-links ul, .footer-services ul {
+            list-style: none;
+        }
+        .footer-links li, .footer-services li {
+            margin-bottom: 0.8rem;
+        }
+        .footer-links a, .footer-services a {
+            color: #b9d0f0;
+            text-decoration: none;
+            transition: 0.2s;
+        }
+        .footer-links a:hover, .footer-services a:hover {
+            color: white;
+            padding-left: 4px;
+        }
+        .social-links {
+            display: flex;
+            gap: 12px;
+            margin-top: 1rem;
+        }
+        .social-links a {
+            background: rgba(255,255,255,0.1);
+            width: 38px;
+            height: 38px;
+            border-radius: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.2s;
+        }
+        .footer-bottom {
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 1.5rem;
+            font-size: 0.85rem;
+        }
+        @media (max-width: 992px) {
+            .header-container nav { display: none; }
+            .mobile-menu { display: block; }
+            .lang-switch { margin-left: auto; margin-right: 20px; }
+            .contact-content { flex-direction: column; }
+        }
+        .mobile-nav {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 280px;
+            height: 100%;
+            background: white;
+            z-index: 1100;
+            padding: 5rem 2rem;
+            transition: 0.3s;
+            box-shadow: -5px 0 20px rgba(0,0,0,0.1);
+        }
+        .mobile-nav.active { right: 0; }
+        .mobile-nav ul li { margin: 1.5rem 0; }
+        .overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.4);
+            z-index: 1050;
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.3s;
+        }
+        .overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.7s ease-out;
+        }
+        .animate-on-scroll.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* style pour le modal PDF */
+        .pdf-modal .modal-content {
+            max-width: 90%;
+            width: 1000px;
+            height: 85vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .pdf-modal .modal-body {
+            flex: 1;
+            padding: 0;
+            overflow: hidden;
+        }
+        .pdf-modal iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .btn-pdf {
+            background: var(--primary-light);
+            margin-top: 0.5rem;
+            margin-right: 0.5rem;
+        }
+        /* Justification du texte dans la section À propos */
+        .about-text p {
+            text-align: justify;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+<header id="header">
+    <div class="header-container">
+        <div class="logo-text"><i>iGC : intelligence in General Consulting</i></div>
+        <nav>
+            <ul>
+                <li><a href="#home" data-fr="Accueil" data-en="Home">Accueil</a></li>
+                <li><a href="#about" data-fr="À propos" data-en="About">À propos</a></li>
+                <li><a href="#services" data-fr="Services" data-en="Services">Services</a></li>
+                <li><a href="#references" data-fr="Réalisations" data-en="Achievements">Réalisations</a></li>
+                <li><a href="#partners" data-fr="Partenaires" data-en="Partners">Partenaires</a></li>
+                <li><a href="#contact" data-fr="Contact" data-en="Contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="lang-switch">
+            <button class="lang-btn active" data-lang="fr">FR</button>
+            <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+        <div class="mobile-menu"><i class="fas fa-bars"></i></div>
+    </div>
+</header>
+
+<div class="mobile-nav">
+    <div class="close-menu"><i class="fas fa-times"></i></div>
+    <ul>
+        <li><a href="#home" data-fr="Accueil" data-en="Home">Accueil</a></li>
+        <li><a href="#about" data-fr="À propos" data-en="About">À propos</a></li>
+        <li><a href="#services" data-fr="Services" data-en="Services">Services</a></li>
+        <li><a href="#references" data-fr="Réalisations" data-en="Achievements">Réalisations</a></li>
+        <li><a href="#partners" data-fr="Partenaires" data-en="Partners">Partenaires</a></li>
+        <li><a href="#contact" data-fr="Contact" data-en="Contact">Contact</a></li>
+    </ul>
+</div>
+<div class="overlay"></div>
+
+<!-- Hero -->
+<section class="hero" id="home">
+    <div class="container" style="width:90%; max-width:1280px; margin:0 auto;">
+        <div class="hero-content">
+            <h1 data-fr="Bureau d'études en hydraulique et en environnement" data-en="Engineering office in hydraulics and environment">Bureau d'études en hydraulique et en environnement</h1>
+            <p data-fr="Depuis 2018, iGC offre des solutions innovantes en génie rural, hydraulique et environnement pour des projets durables en Tunisie et à l'international." data-en="Since 2018, iGC offers innovative solutions in rural engineering, hydraulics and environment for sustainable projects in Tunisia and internationally.">Depuis 2018, iGC offre des solutions innovantes en génie rural, hydraulique et environnement pour des projets durables en Tunisie et à l'international.</p>
+            <div class="hero-btns">
+                <a href="#references" class="btn" data-fr="Voir nos projets" data-en="View our projects">Voir nos projets</a>
+                <a href="#contact" class="btn btn-outline" data-fr="Nous contacter" data-en="Contact us">Nous contacter</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About -->
+<section class="about" id="about">
+    <div class="container" style="width:90%; max-width:1280px; margin:0 auto; padding: 100px 0;">
+        <div style="display: flex; gap: 3rem; flex-wrap: wrap; align-items: center;">
+            <div style="flex:1" class="about-text">
+                <h2 data-fr="À propos de nous" data-en="About us">À propos de nous</h2>
+                <p data-fr="Fondée en janvier 2018 par l'ingénieur Seif eddine El Ameri, diplômé de l'ENIT et de l'INAT, avec plus de 23 ans d'expérience en hydraulique et environnement, iGC est un bureau d'études pluridisciplinaire." data-en="Founded in January 2018 by engineer Seif eddine El Ameri, graduate of ENIT and INAT, with over 23 years of experience in hydraulics and environment, iGC is a multidisciplinary engineering office.">Fondée en janvier 2018 par l'ingénieur Seif eddine El Ameri, diplômé de l'ENIT et de l'INAT, avec plus de 23 ans d'expérience en hydraulique et environnement, iGC est un bureau d'études pluridisciplinaire.</p>
+                <p data-fr="Nos secteurs d'activité couvrent le développement agricole et rural, l'hydraulique, l'environnement, les infrastructures urbaines et rurales (routes, ouvrages, barrages), les bâtiments et l'économie générale." data-en="Our fields of activity cover agricultural and rural development, hydraulics, environment, urban and rural infrastructure (roads, structures, dams), buildings and general economics.">Nos secteurs d'activité couvrent le développement agricole et rural, l'hydraulique, l'environnement, les infrastructures urbaines et rurales (routes, ouvrages, barrages), les bâtiments et l'économie générale.</p>
+                <p data-fr="Membre de l'ASTEE-France, nous investissons dans la R&D en mécanique des fluides et des structures. Nous mettons en œuvre une stratégie linguistique (anglais, français, arabe) et valorisons l'économie de la connaissance via des outils de modélisation numérique et une équipe d'experts internationaux." data-en="Member of ASTEE-France, we invest in R&D in fluid mechanics and structures. We implement a linguistic strategy (English, French, Arabic) and promote the knowledge economy through numerical modeling tools and a team of international experts.">Membre de l'ASTEE-France, nous investissons dans la R&D en mécanique des fluides et des structures. Nous mettons en œuvre une stratégie linguistique (anglais, français, arabe) et valorisons l'économie de la connaissance via des outils de modélisation numérique et une équipe d'experts internationaux.</p>
+                <a href="#contact" class="btn" data-fr="Nous contacter" data-en="Contact us">Nous contacter</a>
+            </div>
+            <div style="flex:1; border-radius: 2rem; overflow: hidden; box-shadow: var(--shadow-lg);">
+                <img src="Photos/Photo%20Introduction.png" alt="iGC Consulting" style="width:100%; height:100%; object-fit:cover;" loading="lazy">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Services -->
+<section class="services" id="services" style="background: var(--gray-50);">
+    <div class="container" style="width:90%; max-width:1280px; margin:0 auto; padding: 100px 0;">
+        <div class="section-header">
+            <h2 data-fr="Nos Services" data-en="Our Services">Nos Services</h2>
+            <p data-fr="Nous proposons une gamme complète de services en ingénierie hydraulique et environnementale" data-en="We offer a complete range of services in hydraulic and environmental engineering">Nous proposons une gamme complète de services en ingénierie hydraulique et environnementale</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card animate-on-scroll"><div class="service-icon"><i class="fas fa-tint"></i></div><h3 data-fr="Modélisation Hydraulique" data-en="Hydraulic Modeling">Modélisation Hydraulique</h3><p data-fr="Études avancées, simulations et modélisation des réseaux, barrages et canaux (EPANET, SIC, MECAFLUX)." data-en="Advanced studies, simulations and modeling of networks, dams and canals (EPANET, SIC, MECAFLUX).">Études avancées, simulations et modélisation des réseaux, barrages et canaux (EPANET, SIC, MECAFLUX).</p></div>
+            <div class="service-card animate-on-scroll"><div class="service-icon"><i class="fas fa-leaf"></i></div><h3 data-fr="Études Environnementales" data-en="Environmental Studies">Études Environnementales</h3><p data-fr="Évaluations d'impact, suivi des écosystèmes lacustres, contrôle de la qualité de l'eau et des sédiments." data-en="Impact assessments, monitoring of lake ecosystems, water and sediment quality control.">Évaluations d'impact, suivi des écosystèmes lacustres, contrôle de la qualité de l'eau et des sédiments.</p></div>
+            <div class="service-card animate-on-scroll"><div class="service-icon"><i class="fas fa-water"></i></div><h3 data-fr="Gestion des Ressources en Eau" data-en="Water Resources Management">Gestion des Ressources en Eau</h3><p data-fr="Plans directeurs AEP, études de faisabilité, optimisation des ressources hydriques et transferts d'eau." data-en="Master plans for drinking water supply, feasibility studies, optimization of water resources and water transfers.">Plans directeurs AEP, études de faisabilité, optimisation des ressources hydriques et transferts d'eau.</p></div>
+            <div class="service-card animate-on-scroll"><div class="service-icon"><i class="fas fa-drafting-compass"></i></div><h3 data-fr="Conception d'Ouvrages" data-en="Structure Design">Conception d'Ouvrages</h3><p data-fr="Études APS, APD, DAO pour barrages, stations de pompage, réseaux d'adduction et périmètres irrigués." data-en="Preliminary, detailed and execution studies for dams, pumping stations, water supply networks and irrigated perimeters.">Études APS, APD, DAO pour barrages, stations de pompage, réseaux d'adduction et périmètres irrigués.</p></div>
+            <div class="service-card animate-on-scroll"><div class="service-icon"><i class="fas fa-hard-hat"></i></div><h3 data-fr="Supervision de Travaux" data-en="Works Supervision">Supervision de Travaux</h3><p data-fr="Contrôle et suivi d'exécution selon normes FIDIC, supervision de réseaux d'eau potable et d'irrigation." data-en="Control and monitoring of execution according to FIDIC standards, supervision of drinking water and irrigation networks.">Contrôle et suivi d'exécution selon normes FIDIC, supervision de réseaux d'eau potable et d'irrigation.</p></div>
+            <div class="service-card animate-on-scroll"><div class="service-icon"><i class="fas fa-chart-line"></i></div><h3 data-fr="Assistance Technique" data-en="Technical Assistance">Assistance Technique</h3><p data-fr="Accompagnement des maîtres d'ouvrage, analyses technico-financières, expertise internationale." data-en="Support for project owners, technical and financial analyses, international expertise.">Accompagnement des maîtres d'ouvrage, analyses technico-financières, expertise internationale.</p></div>
+        </div>
+    </div>
+</section>
+
+<!-- Projects -->
+<section class="references" id="references">
+    <div class="container" style="width:90%; max-width:1280px; margin:0 auto; padding: 100px 0;">
+        <div class="section-header">
+            <h2 data-fr="Nos Réalisations" data-en="Our Achievements">Nos Réalisations</h2>
+            <p data-fr="Projets nationaux et internationaux en hydraulique, environnement et infrastructures" data-en="National and international projects in hydraulics, environment and infrastructure">Projets nationaux et internationaux en hydraulique, environnement et infrastructures</p>
+        </div>
+        <div class="project-filters">
+            <button class="filter-btn active" data-filter="all" data-fr="Tous" data-en="All">Tous</button>
+            <button class="filter-btn" data-filter="water" data-fr="Hydraulique" data-en="Hydraulics">Hydraulique</button>
+            <button class="filter-btn" data-filter="environment" data-fr="Environnement" data-en="Environment">Environnement</button>
+            <button class="filter-btn" data-filter="infrastructure" data-fr="Infrastructures" data-en="Infrastructure">Infrastructures</button>
+        </div>
+        <div class="projects-grid" id="projectsGrid"></div>
+    </div>
+</section>
+
+<!-- Partners ribbon -->
+<section class="partners" id="partners" style="padding: 60px 0;">
+    <div class="section-header">
+        <h2 data-fr="Nos Partenaires & Clients" data-en="Our Partners & Clients">Nos Partenaires & Clients</h2>
+        <p data-fr="Ils nous font confiance" data-en="They trust us">Ils nous font confiance</p>
+    </div>
+    <div class="partner-ribbon">
+        <div class="partner-track" id="partnerTrack"></div>
+    </div>
+</section>
+
+<!-- Contact -->
+<section class="contact" id="contact">
+    <div class="container" style="width:90%; max-width:1280px; margin:0 auto; padding: 100px 0;">
+        <div class="section-header">
+            <h2 data-fr="Contactez-nous" data-en="Contact us">Contactez-nous</h2>
+            <p data-fr="Discutons de vos projets en ingénierie hydraulique et environnementale" data-en="Let's discuss your hydraulic and environmental engineering projects">Discutons de vos projets en ingénierie hydraulique et environnementale</p>
+        </div>
+        <div class="contact-content">
+            <div class="contact-info">
+                <div class="contact-item"><div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div><div><h3 data-fr="Adresse" data-en="Address">Adresse</h3><p>B03-NOUR RESIDENCE -118 Rue IBN KHALDOUN- RIADH AL ANDALOUSS- ARIANA CITY-2080-TUNISIA</p></div></div>
+                <div class="contact-item"><div class="contact-icon"><i class="fas fa-phone"></i></div><div><h3 data-fr="Téléphone / WhatsApp" data-en="Phone / WhatsApp">Téléphone / WhatsApp</h3><p>+216 96 857 189</p><p>+216 56 489 222</p></div></div>
+                <div class="contact-item"><div class="contact-icon"><i class="fas fa-envelope"></i></div><div><h3 data-fr="Email" data-en="Email">Email</h3><p>igc.tunisie@gmail.com</p></div></div>
+                <div class="contact-item"><div class="contact-icon"><i class="fas fa-clock"></i></div><div><h3 data-fr="Horaires" data-en="Opening hours">Horaires</h3><p data-fr="Lundi - Vendredi: 8h00 - 18h00" data-en="Monday - Friday: 8:00 AM - 6:00 PM">Lundi - Vendredi: 8h00 - 18h00</p><p data-fr="Samedi: 8h00 - 13h00" data-en="Saturday: 8:00 AM - 1:00 PM">Samedi: 8h00 - 13h00</p></div></div>
+                <div class="contact-item"><div class="contact-icon"><i class="fas fa-file-pdf"></i></div><div><h3 data-fr="Brochures" data-en="Brochures">Brochures</h3>
+                    <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 0.5rem;">
+                        <button class="btn btn-pdf" id="viewBrochureFr" style="background: var(--primary-light); padding: 8px 16px; font-size:0.9rem;"><i class="fas fa-file-pdf"></i> <span data-fr="Visualiser (Français)" data-en="View (French)">Visualiser (Français)</span></button>
+                        <button class="btn btn-pdf" id="viewBrochureEn" style="background: var(--primary-light); padding: 8px 16px; font-size:0.9rem;"><i class="fas fa-file-pdf"></i> <span data-fr="Visualiser (Anglais)" data-en="View (English)">Visualiser (Anglais)</span></button>
+                    </div>
+                </div></div>
+            </div>
+            <div class="contact-form">
+                <form id="contactForm">
+                    <div class="form-group"><label data-fr="Nom complet" data-en="Full name">Nom complet</label><input type="text" class="form-control" id="name" required></div>
+                    <div class="form-group"><label data-fr="Adresse email" data-en="Email address">Adresse email</label><input type="email" class="form-control" id="email" required></div>
+                    <div class="form-group"><label data-fr="Sujet" data-en="Subject">Sujet</label><input type="text" class="form-control" id="subject" required></div>
+                    <div class="form-group"><label data-fr="Message" data-en="Message">Message</label><textarea class="form-control" id="message" rows="4" required></textarea></div>
+                    <div class="gdpr-check"><input type="checkbox" id="gdpr" required><label for="gdpr" data-fr="J'accepte que mes données soient utilisées pour me recontacter." data-en="I agree that my data will be used to contact me.">J'accepte que mes données soient utilisées pour me recontacter.</label></div>
+                    <button type="submit" class="btn" data-fr="Envoyer le message" data-en="Send message">Envoyer le message</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container" style="width:90%; max-width:1280px; margin:0 auto;">
+        <div class="footer-content">
+            <div class="footer-logo"><h2><i>iGC : intelligence in General Consulting</i></h2><p data-fr="Ingénierie hydraulique, environnement, développement rural et infrastructures durables." data-en="Hydraulic engineering, environment, rural development and sustainable infrastructure.">Ingénierie hydraulique, environnement, développement rural et infrastructures durables.</p><div class="social-links"><a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a><a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a><a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a></div></div>
+            <div class="footer-links"><h3 data-fr="Liens rapides" data-en="Quick links">Liens rapides</h3><ul><li><a href="#home" data-fr="Accueil" data-en="Home">Accueil</a></li><li><a href="#about" data-fr="À propos" data-en="About">À propos</a></li><li><a href="#services" data-fr="Services" data-en="Services">Services</a></li><li><a href="#references" data-fr="Réalisations" data-en="Achievements">Réalisations</a></li><li><a href="#contact" data-fr="Contact" data-en="Contact">Contact</a></li></ul></div>
+            <div class="footer-services"><h3 data-fr="Domaines" data-en="Domains">Domaines</h3><ul><li><a href="#" data-fr="Hydraulique" data-en="Hydraulics">Hydraulique</a></li><li><a href="#" data-fr="Environnement" data-en="Environment">Environnement</a></li><li><a href="#" data-fr="Infrastructures" data-en="Infrastructure">Infrastructures</a></li></ul></div>
+            <div class="footer-contact"><h3 data-fr="Contact" data-en="Contact">Contact</h3><p><i class="fas fa-map-marker-alt"></i> <span data-fr="Tunis, Tunisie" data-en="Tunis, Tunisia">Tunis, Tunisie</span></p><p><i class="fas fa-phone"></i> +216 96 857 189</p><p><i class="fas fa-envelope"></i> igc.tunisie@gmail.com</p></div>
+        </div>
+        <div class="footer-bottom"><p>© 2025 iGC - intelligence in General Consulting. <span data-fr="Tous droits réservés." data-en="All rights reserved.">Tous droits réservés.</span></p></div>
+    </div>
+</footer>
+
+<div class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></div>
+
+<!-- Modal pour les projets -->
+<div id="projectModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-close"><i class="fas fa-times"></i></div>
+        <div class="modal-image"></div>
+        <div class="modal-body">
+            <h3 class="modal-title"></h3>
+            <p class="modal-client"></p>
+            <p class="modal-desc"></p>
+            <p class="modal-year"></p>
+            <p class="modal-location"></p>
+        </div>
+    </div>
+</div>
+
+<!-- Modal PDF pour visualisation des plaquettes -->
+<div id="pdfModal" class="modal pdf-modal">
+    <div class="modal-content">
+        <div class="modal-close"><i class="fas fa-times"></i></div>
+        <div class="modal-body">
+            <iframe id="pdfIframe" src="" style="width:100%; height:100%; border:none;"></iframe>
+        </div>
+    </div>
+</div>
+
+<script>
+    // === DONNÉES PROJETS ===
+    const projects = [
+        { title: "Contrôle de l'écosystème du lac de Bizerte", client: "BERD / ANPE", desc: "Suivi qualité eau, phytoplancton, sédiments, modélisation horizon 2050.", category: "environment", img: "Photos/CONTROL%20OF%20THE%20ECOSYSTEM%20OF%20THE%20BIZERTIAN%20LAKE.png", year: "2021-2023", location: "Bizerte, Tunisie" },
+        { title: "Contrôle de l'écosystème du lac sud de Tunis", client: "SEPT", desc: "Suivi des eaux, sédiments, faune et modélisation.", category: "environment", img: "Photos/CONTROL%20OF%20THE%20ECOSYSTEM%20OF%20THE%20TUNISIAN%20SOUTH%20LAKE.jpg", year: "2022", location: "Tunis, Tunisie" },
+        { title: "Évaluation des ressources en eau - Thibar", client: "GIZ", desc: "Diagnostic et plan de réhabilitation du système d'irrigation et station de pompage.", category: "water", img: "Photos/Evaluation%20of%20the%20water%20resources%20at%20the%20Land%20of%20the%20educational%20farm%20of%20the%20agricultural%20training%20secondary%20school%20in%20cattle%20breeding%20in%20Thibar%20and%20proposal%20of%20a%20rehabilitation.jpg", year: "2020", location: "Thibar, Tunisie" },
+        { title: "Supervision AEP Bizerte (300 km)", client: "SONEDE / SCET", desc: "Supervision de pose de 300 km de conduites et station de traitement.", category: "water", img: "Photos/Project%20to%20improve%20the%20rate%20of%20drinking%20water%20supply%20in%20rural%20areas%20of%20the%20Governorate%20of%20Bizerte.jpg", year: "2021-2024", location: "Bizerte, Tunisie" },
+        { title: "Plans directeurs AEP - Kasserine", client: "SCET-Tunisie", desc: "Modélisation EPANET des réseaux urbains et ruraux.", category: "water", img: "Photos/Water%20Supply%20Master%20Plans%20Design%20of%20the%20Water%20Supply%20Master%20plans%20of%20big%20and%20small%20 cities,.jpg", year: "2022", location: "Kasserine, Tunisie" },
+        { title: "Transfert hydraulique Medjerda-Cap Bon", client: "DGBGTH", desc: "Modélisation du canal de 120 km (28 m³/s).", category: "water", img: "Photos/HYDRAULIC%20TRANSFER.jpg", year: "2019-2021", location: "Tunisie" },
+        { title: "Complexe urbain - Tobrouk, Libye", client: "Architect Slim Ben Nsib", desc: "Conception des systèmes de protection incendie, AEP, assainissement.", category: "infrastructure", img: "Photos/DEVELOPMENT%20STUDY%20FOR%20A%20COMMERCIAL%20AND%20URBAN%20COMPLEX%20IN%20TOBRUK.png", year: "2020", location: "Tobrouk, Libye" },
+        { title: "Réhabilitation du complexe Ben Mansour - Libye", client: "GWSC", desc: "Diagnostic, études de faisabilité, conception détaillée du transfert 500 l/s.", category: "water", img: "Photos/REHABILITATION%20OF%20THE%20BEN%20MANSOUR%20PUMPING%20COMPLEX%20AND%20WATER%20SUPPLY%20TRANSFERT%20TO%20BNINA%20AND%20COUFIA.jpg", year: "2021-2022", location: "Benghazi, Libye" },
+        { title: "Port d'Oyo - Congo", client: "Direction Générale des Grands Travaux", desc: "Conception des systèmes d'eau potable, incendie et assainissement.", category: "infrastructure", img: "Photos/DEVELOPMENT%20OF%20THE%20PORT%20OYO.png", year: "2022", location: "Oyo, Congo" },
+        { title: "Plans directeurs AEP - Cameroun, Congo, Guinée, Côte d'Ivoire", client: "CAMWATER / SODECI", desc: "Études pour Yaoundé (2M hab.), Brazzaville, Pointe-Noire, Boké, Korhogo.", category: "water", img: "Photos/Excerpt%20from%20the%20Project%20YAOUNDE.jpg", year: "2020-2023", location: "Afrique" },
+        { title: "Résilience écosystémique - Lac Guier, Sénégal", client: "Lake Guier Office", desc: "Irrigation de 16 000 ha, AEP de 4000 habitants.", category: "environment", img: "Photos/Ecosystem%20Resilience%20Studies.jpg", year: "2023", location: "Sénégal" },
+        { title: "Aménagement antiérosif Kef RAII - Siliana", client: "PROFITS / FIDA", desc: "Plan d'aménagement antiérosif, études d'impact des lacs collinaires.", category: "environment", img: "Photos/Development%20of%20an%20Anti-erosion%20Development%20Plan%20for%20Kef%20RAII%20and%20Environmental%20Impact%20Studies%20of%20the%20two%20hill%20lakes%20studied%20on%20Oued%20Sahbi%20and%20Oued%20El%20GARIA%20in%20the%20Delegation%20of%20Rouhia%20–SILIANA.jpg", year: "2023", location: "Siliana, Tunisie" },
+        { title: "Formation GDA - Sbikha & Sidi Bouzid", client: "GIZ", desc: "Formation en connaissance des réseaux de distribution d'eau.", category: "water", img: "Photos/Training%20in%20knowledge%20of%20THE%20distribution%20networks%20for%20the%20GDAs%20of%20the%20Sbikha%20Delegation%20of%20the%20the%20Governorates%20Kairouan%20and%20Sidi%20Bouzid.jpg", year: "2021", location: "Kairouan & Sidi Bouzid, Tunisie" },
+        { title: "Diagnostic des services d'eau - Sidi Bouzid", client: "GIZ", desc: "Évaluation des offres de maintenance des systèmes d'eau.", category: "water", img: "Photos/Establish%20a%20diagnosis%20of%20the%20current%20situation%20of%20public%20and%20private%20service%20offers%20in%20maintenance%20of%20the%20water%20supply%20and%20irrigation%20systems%20in%20Sidi%20Bouzid.jpg", year: "2020", location: "Sidi Bouzid, Tunisie" },
+        { title: "Aménagement terrain de golf - Raoued", client: "ALLIANCE FRANCE", desc: "Étude d'irrigation automatique sur 80 ha, pilotage.", category: "infrastructure", img: "Photos/DETAILED%20DESIGN%20OF%2080%20HA%20IIRIGATION%20%20GOLF%20LAND%20FROM%20WASTEWATER%20TREATMENT%20PLANT%20OF%20CHOTRANA.jpg", year: "2022", location: "Ariana, Tunisie" },
+        { title: "Études de barrages - Bou Heurtma", client: "DGBGTH", desc: "Surélévation de barrage, capacité 117 Mm³, évacuateur de crues.", category: "water", img: "Photos/DAMS.jpg", year: "2019", location: "Tunisie" },
+        { title: "Stations de pompage & modélisation", client: "DGBGTH / COBA", desc: "Études des régimes transitoires, calculs génie civil.", category: "water", img: "Photos/Pumping%20Stations%20and%20modelling%20Great%20Hydraulic%20Channels.jpg", year: "2020-2022", location: "Tunisie" },
+        { title: "Modernisation PPI Medjerda", client: "CRDA Manouba", desc: "Aménagement hydro-agricole de 3000 ha, modélisation EPANET.", category: "water", img: "Photos/Rural%20and%20Agricultural%20Development%20HYDRO-AGRICULTURAL%20DEVELOPMENT.jpg", year: "2021", location: "Medjerda, Tunisie" },
+        { title: "Évaluation des périmètres irrigués - JBIC", client: "JBIC / SCET", desc: "Missions d'évaluation pour le compte de bailleurs internationaux.", category: "water", img: "Photos/Evaluation%20Missions.jpg", year: "2019", location: "Nord Tunisie" },
+        { title: "Projet Biltine - Tchad", client: "SCET-Tunisie", desc: "Aménagements barrages collinaires, périmètres irrigués, AEP villageoise.", category: "infrastructure", img: "Photos/Excerpt%20from%20the%20Project%20BILTINE%20IRDP.jpg", year: "2018", location: "Biltine, Tchad" },
+        { title: "Station de pompage Manantali - Mali", client: "SCET-Tunisie", desc: "Contrôle des travaux d'exécution, débit 3 m³/s.", category: "water", img: "Photos/Excerpt%20from%20the%20Project%20Control%20of%20the%20Execution%20of%20the%20Manantali%20Pumping%20Station.jpg", year: "2020", location: "Mali" },
+        { title: "Transfert Ain Salah - Tamanrasset", client: "SCET / STUCKY", desc: "Supervision pose conduites acier DN900, 1200 km, désert algérien.", category: "water", img: "Photos/Excerpt%20from%20the%20Project%20Control%20works%20of%20the%20Water%20Transfer%20from%20Ain%20Salah%20to%20Tamanrasset.jpg", year: "2014-2015", location: "Algérie" },
+        { title: "Aménagement rivière Kanyosha - Burundi", client: "SCET-Tunisie", desc: "Contrôle des travaux d'aménagement des ravins et rivières.", category: "infrastructure", img: "Photos/Project%20Excerpt%20Control%20of%20the%20KANYOSHA%20River%20Works.jpg", year: "2011", location: "Bujumbura, Burundi" }
+    ];
+
+    function renderProjects(filter = "all") {
+        const grid = document.getElementById('projectsGrid');
+        const filtered = filter === "all" ? projects : projects.filter(p => p.category === filter);
+        grid.innerHTML = filtered.map((p, idx) => `
+            <div class="project-card" data-idx="${idx}">
+                <div class="project-image" style="background-image:url('${p.img}'); background-size:cover; background-position:center;"></div>
+                <div class="project-content">
+                    <span class="project-category">${p.category === "water" ? "Hydraulique" : p.category === "environment" ? "Environnement" : "Infrastructures"}</span>
+                    <h3 class="project-title">${p.title}</h3>
+                    <p class="project-client">${p.client}</p>
+                    <p>${p.desc.substring(0, 100)}${p.desc.length > 100 ? "..." : ""}</p>
+                </div>
+            </div>
+        `).join('');
+        document.querySelectorAll('.project-image').forEach((imgDiv) => {
+            const originalUrl = imgDiv.style.backgroundImage.slice(5, -2);
+            const testImg = new Image();
+            testImg.onerror = () => {
+                const pngUrl = originalUrl.replace(/\.jpg$/, '.png');
+                const pngTest = new Image();
+                pngTest.onerror = () => { imgDiv.style.backgroundImage = "url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"; };
+                pngTest.onload = () => { imgDiv.style.backgroundImage = `url('${pngUrl}')`; };
+                pngTest.src = pngUrl;
+            };
+            testImg.src = originalUrl;
+        });
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.addEventListener('click', (e) => {
+                const idx = card.dataset.idx;
+                const proj = filtered[idx];
+                openModal(proj);
+            });
+        });
+    }
+
+    function openModal(proj) {
+        const modal = document.getElementById('projectModal');
+        const modalImgDiv = modal.querySelector('.modal-image');
+        modalImgDiv.style.backgroundImage = `url('${proj.img}')`;
+        modal.querySelector('.modal-title').innerText = proj.title;
+        modal.querySelector('.modal-client').innerHTML = `<strong>Client :</strong> ${proj.client}`;
+        modal.querySelector('.modal-desc').innerHTML = `<strong>Description :</strong> ${proj.desc}`;
+        modal.querySelector('.modal-year').innerHTML = `<strong>Année :</strong> ${proj.year}`;
+        modal.querySelector('.modal-location').innerHTML = `<strong>Localisation :</strong> ${proj.location}`;
+        modal.classList.add('active');
+    }
+
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            renderProjects(btn.dataset.filter);
+        });
+    });
+    renderProjects();
+
+    const projectModal = document.getElementById('projectModal');
+    projectModal.querySelector('.modal-close').addEventListener('click', () => projectModal.classList.remove('active'));
+    projectModal.addEventListener('click', (e) => { if(e.target === projectModal) projectModal.classList.remove('active'); });
+
+    // PDF Modal
+    const pdfModal = document.getElementById('pdfModal');
+    const pdfIframe = document.getElementById('pdfIframe');
+    function showPDF(pdfPath) {
+        pdfIframe.src = pdfPath;
+        pdfModal.classList.add('active');
+    }
+    pdfModal.querySelector('.modal-close').addEventListener('click', () => pdfModal.classList.remove('active'));
+    pdfModal.addEventListener('click', (e) => { if(e.target === pdfModal) pdfModal.classList.remove('active'); });
+
+    document.getElementById('viewBrochureFr').addEventListener('click', () => {
+        showPDF('Plaquettes/Plaquette iGC-Français-JANV-2026.pdf');
+    });
+    document.getElementById('viewBrochureEn').addEventListener('click', () => {
+        showPDF('Plaquettes/Plaquette iGC-ANglais -2025.pdf');
+    });
+
+    // Partner ribbon
+    const partnersList = [
+        { name: "ANPE", file: "ANPE.jpg" },
+        { name: "Banque Européenne d'Investissement", file: "BANQUE EUROPEENNE D'IVESTISSEMENT.png" },
+        { name: "BERD", file: "BERD.png" },
+        { name: "CAMWATER", file: "CAMWATER.png" },
+        { name: "DGBGTH", file: "DGBGTH.png" },
+        { name: "EUROMED", file: "EUROMED.jpg" },
+        { name: "GIZ", file: "giz.jpg" },
+        { name: "Ministère de l'Agriculture", file: "Logo_Ministère_de_l'Agriculture_(Tunisie).png" },
+        { name: "Ministère de l'Environnement", file: "M.environnement.jpg" },
+        { name: "SCET Tunisie", file: "SCET.png" },
+        { name: "SONEDE", file: "SONEDE.png" }
+    ];
+    const track = document.getElementById('partnerTrack');
+    if (track) {
+        let html = '';
+        for (let i = 0; i < 2; i++) {
+            partnersList.forEach(p => {
+                html += `<div class="partner-logo"><img src="Logos/${p.file}" alt="${p.name}" loading="lazy" onerror="this.onerror=null; this.style.display='none';"><span style="display:none;">${p.name}</span></div>`;
+            });
+        }
+        track.innerHTML = html;
+    }
+
+    // Langue
+    function setLanguage(lang) {
+        document.querySelectorAll('[data-fr][data-en]').forEach(el => {
+            if (lang === 'fr') {
+                el.innerText = el.getAttribute('data-fr');
+            } else {
+                el.innerText = el.getAttribute('data-en');
+            }
+        });
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            if (btn.getAttribute('data-lang') === lang) {
+                btn.classList.add('active');
+            } else {
+                btn.classList.remove('active');
+            }
+        });
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const lang = btn.getAttribute('data-lang');
+            setLanguage(lang);
+        });
+    });
+    setLanguage('fr');
+
+    // Animations scroll
+    const animateElements = document.querySelectorAll('.animate-on-scroll');
+    const observerAnim = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('animate'); });
+    }, { threshold: 0.2 });
+    animateElements.forEach(el => observerAnim.observe(el));
+
+    // Back to top
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) backToTop.classList.add('show');
+        else backToTop.classList.remove('show');
+    });
+    backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    // Mobile menu
+    const mobileMenuBtn = document.querySelector('.mobile-menu');
+    const closeMenuBtn = document.querySelector('.close-menu');
+    const mobileNav = document.querySelector('.mobile-nav');
+    const overlayMenu = document.querySelector('.overlay');
+    function closeMobile() { mobileNav.classList.remove('active'); overlayMenu.classList.remove('active'); document.body.style.overflow = 'auto'; }
+    mobileMenuBtn.addEventListener('click', () => { mobileNav.classList.add('active'); overlayMenu.classList.add('active'); document.body.style.overflow = 'hidden'; });
+    closeMenuBtn.addEventListener('click', closeMobile);
+    overlayMenu.addEventListener('click', closeMobile);
+    window.addEventListener('scroll', () => document.getElementById('header').classList.toggle('scrolled', window.scrollY > 80));
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if(target) { window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' }); closeMobile(); }
+        });
+    });
+
+    // Contact form
+    document.getElementById('contactForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        alert("Merci ! Votre message a été envoyé. Nous vous répondrons dans les meilleurs délais.");
+        e.target.reset();
+    });
+</script>
+</body>
+</html>
